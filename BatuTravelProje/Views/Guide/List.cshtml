@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete
+@model List<Guide>
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<h1>Rehber Listemiz</h1>
+<section class="grids-1 py-5">
+    <div class="grids py-lg-5 py-md-4">
+        <div class="container">
+            <h3 class="hny-title mb-5">Tur Rotaları</h3>
+            <div class="row">
+                <h2>Sqlden gelen veriler</h2>
+                @foreach (var item in Model)
+                    @if (item.Status == true)
+                    {
+                        {
+                            <div class="col-lg-4 col-md-4 col-6">
+                                <div class="column">
+                                    <img src="@item.Image" alt="" class="img-fluid">
+                                    <div class="info">
+                                        <h4>@item.Name</h4>
+                                        <p>@item.Description </p>
+                                        <a href="@item.TwitterURL"><span class="fa fa-twitter" aria-hidden="true">Rehberin Twitteri geliyor</span></a>
+                                        <a href="@item.InstagramUrl"><span class="fa fa-instagram" aria-hidden="true">rehberin instagram url</span></a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+            </div>
+        </div>
+    </div>
+</section>
